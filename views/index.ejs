@@ -1,0 +1,82 @@
+<%- include("header") -%>
+<div class="container">
+
+
+
+      <div id="content">
+        <div class="row">
+          <div class ="col s6">
+            <form class="form1" action="/" method="post">
+              <label style="color:black" for="playlistID"><b>ENTER PLAYLIST ID : </b></label>
+              <input id="playlistID" class=" z-depth-5 btn grey lighten-15 " type="text" placeholder="playlistID here" name="playlistID" >
+              <button type="submit" name="button" class="btn btn-outline-secondary btn-lg inputButton">check out</button>
+            </form>
+          </div>
+
+        </div>
+        <div class="row" id="video-container"></div>
+
+      </div>
+</div>
+
+    <hr>
+<section class="middle">
+    <div class="row">
+          <div class="col-sm-4">
+            <b>Channel : <%=channelName1%></b>
+            <p>Published at : <%=lastUpdate1%></p>
+            <a href=<%=playlistLINK1%>><img src= <%=imageURL1%> alt="atharv" ></a>
+            <p class="heading">Title : <%= title1%> <br>Videos : <%= totalCount %> <br>Description : <%= description1 %></p>
+
+            <ul>
+              <% playListArray1.forEach((item, i) => { %>
+                    <li>
+                      <a href="<%=item.videoLink%>"><%=item.playlistID%></a>
+                    </li>
+            <% }); %>
+
+
+            </ul>
+
+          </div>
+        <!-- rightside -->
+        <div class="col-sm-8">
+
+                <%for(var i=0;i<arrayLength1;i++){ %>
+                  <div class="row">
+
+                    <div class="col-sm-2">
+                     <a href="https://www.youtube.com/watch?v=<%=playlistVideoID1[i]%>&list=<%=playlist1%>&index="+i><img src= <%= videoImage1[i]%>></a>
+
+                     <p>duration : <%= videoDuration1[i]%></p>
+
+
+                    </div>
+                    <div class="col-sm-10 title1">
+
+                      <b><%=videoTitle1[i]%></b>
+                      <p><%=publishedAt1[i]%></p>
+                        <!-- <button type="button" class="btn btn-outline-info">Description</button -->
+                      <button class="btn btn-outline-info" type="button" data-bs-toggle="collapse" data-bs-target="#asd" aria-expanded="false" aria-controls="collapseExample">
+                          description
+                      </button>
+                      <div class="collapse" id="asd" >
+                          <div class="card card-body">
+                            <%= videoDescription1[i] %>
+                          </div>
+                        </div>
+
+                      <a href="https://www.youtube.com/watch?v=<%=playlistVideoID1[i]%>&list=<%=playlist1%>&index="+i><em>VideoID : <%= playlistVideoID1[i]%></em></a>
+                      <hr />
+                    </div>
+                  </div>
+                  <% } %>
+            </div>
+
+      </div>
+
+</section>>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <%- include("footer") -%>
